@@ -24,8 +24,7 @@ Gem::Specification.new do |spec|
     gemfiles/
     spec/
   )
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject{ |f| ignore_files.any?{ |path| f.start_with?(path) } }
+  spec.files         = Dir.glob("lib/**/*")
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
